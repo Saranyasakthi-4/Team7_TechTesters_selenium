@@ -21,7 +21,8 @@ public class NavigationValidationfromManageProgramtootherPagesPage {
     String userNameExcelValue;
     String passwordExcelValue;
     public By batchbtn = By.xpath("//span[normalize-space()='Batch']");
-    public By userbtn = By.xpath("//span[normalize-space()='User']");
+    public By userbtn = By.xpath("//*[@id=\"user\"]");
+    public By Logoutbtn=By.xpath("//*[@id=\"logout\"]");
 
     	public DashBoardPage clickLoginBtn_background(String sheetName, Integer rowNumber) throws IOException {
     	     
@@ -56,7 +57,7 @@ public class NavigationValidationfromManageProgramtootherPagesPage {
 
 	public void clickbatchbtn() {
 		webDriver.findElement(batchbtn).click(); //SM: To find xpath for batch link
-		
+		//webDriver.navigate().back();
 	}
 
 
@@ -68,6 +69,7 @@ public class NavigationValidationfromManageProgramtootherPagesPage {
 	
 	public void clickuserbtn() {
 		webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//webDriver.navigate().to("https://lms-frontend-api-hackathon-apr-326235f3973d.herokuapp.com/");
 		webDriver.findElement(userbtn).click(); 
 		
 	}
@@ -77,6 +79,12 @@ public class NavigationValidationfromManageProgramtootherPagesPage {
 		String userurl=webDriver.getCurrentUrl();
 		return userurl;
 	}
+
+	public void clickLogoutbtn() {
+		webDriver.findElement(Logoutbtn).click();
+		
+	}
 	 
-	 
+	
+		
 }
