@@ -18,6 +18,15 @@ public class LoginPage {
 	    By loginBtn = By.xpath("//span[@class='mat-button-wrapper']");
 	    String userNameExcelValue;
 	    String passwordExcelValue;
+	    
+	    public DashBoardPage clickLoginBtn_background(String sheetName, Integer rowNumber) throws IOException {
+	        
+	        readDataFromSheet(sheetName, rowNumber);
+	        sendUsername();
+	   sendPassword();
+	           webDriver.findElement(loginBtn).click();
+	           return new DashBoardPage(webDriver);     }
+
 
 	    public LoginPage(WebDriver webDriver) {
 	        super();
