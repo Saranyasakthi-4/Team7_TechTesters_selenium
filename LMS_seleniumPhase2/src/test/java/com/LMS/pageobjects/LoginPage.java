@@ -40,8 +40,17 @@ public class LoginPage {
 	    	System.out.println("-----Password: "+passwordExcelValue);
 	        webDriver.findElement(password).sendKeys(passwordExcelValue);
 	    }
-
+	    
 	    public DashBoardPage clickLoginBtn() {
+	        webDriver.findElement(loginBtn).click();
+	        return new DashBoardPage(webDriver);
+
+	    }
+        public DashBoardPage clickLoginBtn_background(String sheetName, Integer rowNumber) throws IOException {
+	    	
+	    	readDataFromSheet(sheetName, rowNumber);
+	    	sendUsername();
+			sendPassword();
 	        webDriver.findElement(loginBtn).click();
 	        return new DashBoardPage(webDriver);
 
