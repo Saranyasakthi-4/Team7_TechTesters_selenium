@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 
@@ -12,6 +13,19 @@ public class DeleteBatchPage {
 
 	private WebDriver webDriver;
 	
+    public By Chkbox1=By.xpath("//tbody/tr[1]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");
+    public By Chkbox2=By.xpath("//tbody/tr[2]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");
+    public By Chkbox3=By.xpath("//tbody/tr[3]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");
+    public By Chkbox4=By.xpath("//tbody/tr[4]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");
+    public By Chkbox5=By.xpath("//tbody/tr[5]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");
+    public By YestoDelete=By.xpath("//span[normalize-space()='Yes']");
+    
+    public By deleteIconStatusPath=By.xpath("//*[@class=\"p-button-danger p-button p-component p-button-icon-only\"]");
+	
+	
+    
+    
+ 
 	By deleteBatch = By.xpath("(//span[@aria-hidden='true'])[6]");
 	
 	 public DeleteBatchPage(WebDriver webDriver) {
@@ -25,6 +39,7 @@ public class DeleteBatchPage {
 		
 	}
 
+	
 	public void validateAlertWindow(String confirm) {
 
 		String conf= "Confirm";
@@ -93,6 +108,50 @@ public class DeleteBatchPage {
 		 webDriver.findElement(By.xpath("//button[@class='p-paginator-first p-paginator-element p-link p-ripple ng-star-inserted']")).click();
 	       
 	    }
+
+	public boolean VerifyCheckboxUnChecked() {
+		
+		 //String webDriver.findElement(By.xpath("//div[@class='p-checkbox-box']")).getAttribute("aria-checked");
+		 
+		boolean chkbox=(webDriver.findElement(Chkbox1).isSelected()&&webDriver.findElement(Chkbox2).isSelected()&&webDriver.findElement(Chkbox3).isSelected()&&webDriver.findElement(Chkbox4).isSelected()&&webDriver.findElement(Chkbox5).isSelected());
+		return chkbox;
+		
+	}
+
+	public boolean VerifyDeleteIcondisabled() {
+		
+		boolean deleteIconStatus= webDriver.findElement(deleteIconStatusPath).isEnabled();
+		return deleteIconStatus;
+	}
+
+	public void enableCheckBox4OneRecord() {
+		webDriver.findElement(Chkbox1).click();
+	}
+
+	public void clickDelete() {
+		webDriver.findElement(deleteIconStatusPath).click();	
+		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+
+	public void Record_deleted_successfully() {
+		
+		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	//	String Alert = webDriver.findElement(By.xpath("//div[text() = 'Successfully']")).getText();
+	//	System.out.println("Alert : " + Alert);
+	}
+
+	public void enableCheckBox4TwoRecord() {
+		webDriver.findElement(Chkbox1).click();
+		webDriver.findElement(Chkbox2).click();
+		webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+	}
+	
+	public void clickYestoDelete() {
+		webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		webDriver.findElement(YestoDelete).click();
+		
+	}
 	
 	
 	
