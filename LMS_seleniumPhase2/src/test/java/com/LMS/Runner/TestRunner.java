@@ -15,6 +15,7 @@ import io.cucumber.junit.CucumberOptions;
         		"junit:target/JUnitReport/report.xml",
         		"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        tags = "@tagLoginPage or @tagMultipleDeleteProgram",
         
         monochrome=false
 		

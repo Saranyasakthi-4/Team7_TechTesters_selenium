@@ -33,6 +33,9 @@ public class Program {
 	By searchBtn = By.xpath("//input[@id='filterGlobal']");
 	By noPrograms = By.xpath("//div[@class='p-datatable-footer ng-star-inserted']/div");
 	By deleteProgram = By.xpath("//tbody/tr[1]/td[5]/div[1]/span[1]/button[2]/span[1]");
+	By checkProgram = By.xpath("//tbody/tr[2]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");
+	By checkSecondProgram = By.xpath("//tbody/tr[1]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");
+	By commonDelete = By.xpath("//button[@class='p-button-danger p-button p-component p-button-icon-only']//span[@class='p-button-icon pi pi-trash']");
 	String programNameExcelValue;
 	String programDescExcelValue;
 	String editInvalidMsg;
@@ -373,7 +376,7 @@ public class Program {
 	 public void clickNoDelete() {
 			
 		 webDriver.findElement(By.xpath("//span[normalize-space()='No']")).click();
-	       
+		
 	    }
 	 public void clickDeleteYes() {
 			
@@ -402,6 +405,60 @@ public class Program {
 			 }
 		 }
 	       
+	    }
+	 public void clickCheckboxProgram() {
+			
+	        webDriver.findElement(checkProgram).click();
+	       System.out.println("first checkbox");
+	    }
+	 public void clickSecondCheckboxProgram() {
+			
+	        webDriver.findElement(checkSecondProgram).click();
+	        System.out.println("second checkbox");
+	    }
+	 public void deleteEnable() {
+
+			boolean isDeleteEnable = webDriver.findElement(commonDelete).isEnabled();
+			Assert.assertTrue(isDeleteEnable);
+			
+	    }
+	 public void clickCommondelete() {
+			
+	        webDriver.findElement(commonDelete).click();
+	    }
+	 public void commonDeleteYes() {
+			
+		 int pages = webDriver.findElements(By.xpath("//span[@class='p-paginator-pages ng-star-inserted']/button")).size();
+		 System.out.println("Total no of pages "+pages);
+		 for(int p=1;p<=pages;p++) {
+			 //active page click
+			 WebElement active_page = webDriver.findElement(By.xpath("//button[normalize-space()='"+p+"']"));
+			 active_page.click();
+			 //System.out.println(p);
+			 int noRows = webDriver.findElements(By.xpath("//table[@role='grid']/tbody/tr")).size();
+			 //System.out.println(noRows);
+			 for(int r=1;r<=noRows;r++) {
+				 String programName =  webDriver.findElement(By.xpath("//table[@role='grid']/tbody/tr["+r+"]/td[2]")).getText();
+				 //System.out.println("pName"+programName);
+				 if(programName.contains("Team7")) {
+					 //System.out.println(programName);
+					 //webDriver.findElement(By.xpath("//table[@role='grid']/tbody/tr["+r+"]/td[5]//button[1])")).click();
+					 webDriver.findElement(By.xpath("//tbody/tr["+r+"]/td[1]/p-tablecheckbox[1]/div[1]/div[2]")).click();
+					 webDriver.findElement(commonDelete).click();
+					 webDriver.findElement(By.xpath("//span[normalize-space()='Yes']")).click();
+			      	 webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+					 break;
+				 }
+				 
+			 }
+		 }
+	       
+	    }
+	 
+	 public void clickCommondeleteYesButton() {
+			
+		 webDriver.findElement(By.xpath("//span[normalize-space()='Yes']")).click();
+		
 	    }
 		
 }
