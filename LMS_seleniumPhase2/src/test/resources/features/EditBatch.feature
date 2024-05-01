@@ -15,7 +15,7 @@ Background:
 	Then The updated batch details BatchDiscription "<BatchDiscription>", BatchStatus "<BatchStatus>", NoOfClasses "<NoOfClasses>" should appear on the data table
 	Examples: 
      | BatchName  |  BatchDiscription 			| BatchStatus 	| NoOfClasses 
-     | 		BeastTeam07	|  selenium 							|	INACTIVE 			|	3 
+     | 		Batch24	|  selenium 							|	INACTIVE 			|	3 
  #    | BeastTeam07				|  selenium 					|	Active 				|	3 					
      
     # | sheetName | rowNumber |
@@ -37,11 +37,11 @@ Background:
 	Given Search for "<BatchName>" in batch search bar
 	And Batch Admin clicks the edit icon
 	When Admin give invalid BatchDiscription "<BatchDiscription>" and click save
-	Then Error message should appear on batch
+	Then Error message should appear on batch "This field should start with an alphabet and min 2 character."
 	
 	  	Examples: 
      |    BatchName  |  BatchDiscription
-     | 		BeastTeam07	|  @##$@
+     | 		Batch24	|  @##$@
 	
 	Scenario Outline: Check if you get error message when mandatory fields are erased
 	Given Search for "<BatchName>" in batch search bar
@@ -51,7 +51,7 @@ Background:
 	
 	   	Examples: 
      |    BatchName  |  BatchStatus|
-     | 			|            |
+     | 			Batch24				|            |
 	
 	Scenario Outline: Check if description field is optional in update
 	Given Search for "<BatchName>" in batch search bar
@@ -61,6 +61,6 @@ Background:
 	
 	     	Examples: 
      |    BatchName  |  BatchDiscription |
-     | 			|                  |
+     | 		Batch24	|                  |
 
 
