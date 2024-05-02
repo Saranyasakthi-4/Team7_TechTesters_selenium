@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class ConfigReader {
 	
-		 Properties pro;
+		// Properties pro;
 		  private static Properties prop;
 
 		    public Properties init_prop() {
@@ -28,19 +28,24 @@ public class ConfigReader {
 		
 	    //get URL from config                    
 		public String getApplicationURL() {
-			String url = pro.getProperty("url");
+			String url = prop.getProperty("url");
 			return url;
 		}
+		  //get Invalid URL from config                    
+				public String getInvalid_ApplicationURL() {
+					String invalidurl = prop.getProperty("invalidurl");
+					return invalidurl;
+				}
 		
 		//get browser from config
 		public String getbrowser() {
-			String browser = pro.getProperty("browser");
+			String browser = prop.getProperty("browser");
 			return browser;
 		}
 		
 		//get XLPath from config
 		public String getXlpath() {
-			String xlPath = pro.getProperty("Xlpath");
+			String xlPath = prop.getProperty("Xlpath");
 			return xlPath;
 		}
 
