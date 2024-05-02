@@ -9,7 +9,7 @@ Feature: BatchPageValidation
   
   Scenario: Validate landing in Batch page
   Given Batch Admin is on dashboard page after Login
-  When Admin clicks Batch from navigation bar
+  When Admin clicks "Batch" from navigation bar
   Then Admin should see the "Manage Batch" in the URL
   Then Admin should see the "Manage Batch" in the header
   Then Admin should see the Batch_pagination controls under the data table

@@ -32,7 +32,7 @@ public class AddBatch_SD {
 	public void admin_clicks_button(String string) throws InterruptedException {
 		String currentURL = Driverfactory.getDriver().getCurrentUrl();
 		System.out.println(currentURL);
-		//Thread.sleep(1000);
+		Thread.sleep(500);
 		AddPage.click_addbatchButton();
 	   
 	}

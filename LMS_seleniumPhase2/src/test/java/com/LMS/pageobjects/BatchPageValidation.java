@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 
-public class PageValidation {
+public class BatchPageValidation {
 
 	private WebDriver webDriver;
 	
@@ -26,10 +26,10 @@ public class PageValidation {
 	  By batchdesc_alert = By.xpath("//small[@id='text-danger']");
 	  By manage_Batch = By.xpath("//div[@class='box']");
 	  public By PaginationText=By.xpath("//*[@class=\"p-paginator-current ng-star-inserted\"]");
-	  public By Deletemain=By.xpath("//*[@class=\\\"p-button-danger p-button p-component p-button-icon-only\\\"]");
+	  public By Deletemain=By.xpath("//button[@class='p-button-danger p-button p-component p-button-icon-only']");
 	  public By Chkbox=By.xpath("//tbody/tr[1]/td[1]/p-tablecheckbox[1]/div[1]/div[2]");	
 	  public By EditButton=By.xpath("(//span[@aria-hidden='true'])[4]");
-	  public By DeleteButton=By.xpath("(//span[@aria-hidden='true'])[6]");
+	  public By DeleteButton=By.xpath("(//span[@aria-hidden='true'])[6]");//
 	
 	  
 
@@ -50,7 +50,7 @@ public class PageValidation {
 		String batchDescExcelValue;
 	
 	
-	public PageValidation(WebDriver webDriver) {
+	public BatchPageValidation(WebDriver webDriver) {
 			super();
 	        this.webDriver = webDriver;
 	        PageFactory.initElements(webDriver,this);

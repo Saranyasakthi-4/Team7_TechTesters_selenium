@@ -124,7 +124,7 @@ public class HomePageValidation {
 		String labelText = astrisk.getText();
 		System.out.println(labelText);
        // boolean asteriskPresent = labelText.contains("*");
-        Assert.assertEquals(labelText," *");
+        Assert.assertEquals(labelText,"*");
 		}
 		
 		
