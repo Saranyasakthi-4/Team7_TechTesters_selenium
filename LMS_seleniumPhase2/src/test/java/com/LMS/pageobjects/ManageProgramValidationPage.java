@@ -21,7 +21,7 @@ public class ManageProgramValidationPage {
     public By FooterText=By.xpath("//*[@class=\"p-d-flex p-ai-center p-jc-between ng-star-inserted\"]");
     public By Deletemain=By.xpath("//*[@class=\"p-button-danger p-button p-component p-button-icon-only\"]");
     public By ANewProgram=By.xpath("//*[@id=\"new\"]");
-    
+	public By nextbtn= By.xpath("//*[@class='p-paginator-icon pi pi-angle-right']");
     public By ProgramNameClm=By.xpath("//th[normalize-space()='Program Name']");
     public By ProgramDescClm=By.xpath("//th[normalize-space()='Program Description']");
     public By ProgramStatusClm=By.xpath("//th[normalize-space()='Program Status']");
@@ -158,6 +158,52 @@ public void homeLogin() {
 		return arrowfind;
 	}
 	
+	public String GetMessage()
+	{
+		
+			String[] beforesort1=new String[130];
+			
+			//String[] beforesort;
+			//String[] aftersort1=new String[120];
+
+			//int j=0;
+			
+			try {
+				while(webDriver.findElement(nextbtn).isEnabled()==true) {
+		    		List<WebElement> colname= webDriver.findElements(ProgramNameClm);
+		    		int j=0;
+		    		for (int i=0;i<colname.size();i++)
+		        	{
+		    			
+		    			beforesort1[j]=colname.get(i).getText().trim();
+		       
+		    		   //System.out.println(beforesort1[j]);
+		    		   j=j+1;
+		        	}  		
+		    		
+					webDriver.findElement(nextbtn).click();
+					
+		    	}
+				
+			}
+			
+			catch(Exception e)
+			{
+				//System.out.println("Fail");	
+			}
+			
+			int counter = 0;
+			for (int i = 0; i < beforesort1.length; i ++) {
+			    if (beforesort1[i] != null)
+			        counter ++;
+			}
+			
+			System.out.println(counter);
+			String msg= "Showing 1 to 5 of "+counter+" entries";
+			
+			System.out.println(msg);
+			return msg;
+	}
 	
 }
 	

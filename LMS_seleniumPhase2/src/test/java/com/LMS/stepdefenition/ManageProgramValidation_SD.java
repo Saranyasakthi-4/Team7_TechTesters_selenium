@@ -47,7 +47,10 @@ public void admin_should_see_a_heading_with_text_on_the_page(String string) {
 @Then("Admin should see the text as {string} along with Pagination icon below the table.")
 public void admin_should_see_the_text_as_along_with_pagination_icon_below_the_table(String string) {
     String pgtext=Mpoobj1.findPaginationText();
-    Assert.assertEquals(pgtext,"Showing 1 to 5 of 8 entries");
+    String expectedmsg=Mpoobj1.GetMessage();
+    //Assert.assertEquals(pgtext,"Showing 1 to 5 of 8 entries");
+    Assert.assertEquals(pgtext,expectedmsg);
+    
 	
 }
 
