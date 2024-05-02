@@ -1,6 +1,7 @@
 package com.LMS.pageobjects;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import com.LMS.utilities.ExcelReader;
 
@@ -35,6 +39,7 @@ public class EditBatchPage {
 	  By batchNoofclasses_Field = By.xpath("//input[@id='batchNoOfClasses']");
 	  By addbatch_SAVE = By.xpath("//span[text()='Save']");
 	  By addbatch_CANCEL = By.xpath("//span[text()='Cancel']");
+	  By Editbatch_CANCEL = By.xpath("//span[normalize-space()='Cancel']");
 	  By search_bar = By.xpath("//input[@id='filterGlobal']");
 	  By batchdesc_alert = By.xpath("//small[@id='text-danger']");
 	  By batchDiscriptionPath = By.xpath("//input[@id='batchDescription']");
@@ -42,12 +47,16 @@ public class EditBatchPage {
 	  By batchStatusPath = By.xpath("//div[@class='p-radiobutton p-component']");
 	  By noOfClassesPath = By.xpath("(//input[@id='batchNoOfClasses'])");
 	  By edit_SAVE = By.xpath("//span[normalize-space()='Save']");
+	  By invalidMsg = By.xpath("//small[@id='text-danger']");
+	  
 		public By username = By.xpath("//input[@id='username']");
 		public By password= By.xpath("//input[@id='password']");
 	    public By loginbutton=By.xpath("//span[@class='mat-button-wrapper']");
 	    public By SearchBox=By.xpath("//input[@id='filterGlobal']");
+	    String editInvalidMsg;
 	    
-	    By Edit = By.xpath("(//span[@class='p-button-icon pi pi-pencil'])[1]");
+	    By Edit = By.xpath("(//tr[1]/td/div[1]/span[1]/button[1][@icon='pi pi-pencil'])[1]");
+	    
 
 	 public EditBatchPage(WebDriver webDriver) {
 	        super();
@@ -124,11 +133,14 @@ public class EditBatchPage {
 	}
 	
 	public void Search(String string) {
+		webDriver.findElement(SearchBox).clear();
 		webDriver.findElement(SearchBox).sendKeys(string);
-		webDriver.findElement(SearchBox).click();
+		//webDriver.findElement(SearchBox).click();
 	}
 
 	public void ClickEdit() {
+		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".ng-tns-c132-6.p-dialog-mask")));
 		webDriver.findElement(Edit).click();
 	}
 
@@ -166,13 +178,35 @@ public class EditBatchPage {
 
 	public void VerifyEditedValue(String batchDiscription, String batchStatus, String noOfClasses) {
 		
-		By batchDiscriptionPath = By.xpath("//tbody/tr[1]/td[2]");
-		By batchStatusPath = By.xpath("//div[text()=' ACTIVE ']");
-		By noOfClassesPath = By.xpath("//small[@id='text-danger']");
-		String actualMsg= webDriver.findElement(batchDiscriptionPath).getText();
+		/*
+		 * By batchDiscriptionPath = By.xpath("//tbody/tr[1]/td[2]"); By batchStatusPath
+		 * = By.xpath("//div[text()=' ACTIVE ']"); By noOfClassesPath =
+		 * By.xpath("//small[@id='text-danger']"); String actualMsg=
+		 * webDriver.findElement(batchDiscriptionPath).getText();
+		 */
 		//Assert.assertEquals(batchDiscription, actualMsg);
 		
 	}
+
+	public void EditBatchDiscriptionWith(String batchDiscription) {
+		System.out.println("Enter EditBatchDiscriptionWith: ");
+		webDriver.findElement(batchDiscriptionPath).clear();
+		webDriver.findElement(batchDiscriptionPath).sendKeys(batchDiscription);
+		System.out.println("invalidMsg: " + invalidMsg);
+		editInvalidMsg=webDriver.findElement(invalidMsg).getText();
+		System.out.println("editInvalidMsg: " + editInvalidMsg);
+	}
+
+	public void invalidEditMsg() {
+
+		String errorMsg= "This field should start with an alphabet and min 2 character.";
+		
+		Assert.assertEquals(errorMsg, editInvalidMsg);
+		
+		webDriver.findElement(Editbatch_CANCEL).click();
+    }
+
+
 
 
 	

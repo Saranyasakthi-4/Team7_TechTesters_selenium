@@ -1,6 +1,5 @@
 package com.LMS.Runner;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
@@ -17,12 +16,11 @@ import io.cucumber.junit.CucumberOptions;
         		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         monochrome=true	
 		)
-public class TestRunner {
-
-
-	@Test
+public class TestRunner2 {
+	
+	/*@Test
 	public void runTest() {
 		
-	}
+	}*/
 
 }

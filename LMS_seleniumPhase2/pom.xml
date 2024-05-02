@@ -1,9 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>LMS_seleniumPhase2</groupId>
-  <artifactId>LMS_seleniumPhase2</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
- 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>LMS_seleniumPhase2</groupId>
+	<artifactId>LMS_seleniumPhase2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
@@ -25,12 +27,12 @@
 			<scope>compile</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>7.14.0</version>
-			<scope>compile</scope>
-		</dependency>
+			<dependency>
+   	 		<groupId>io.cucumber</groupId>
+    		<artifactId>cucumber-junit</artifactId>
+    		<version>7.17.0</version>
+    		<scope>test</scope>
+			</dependency>
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -38,16 +40,16 @@
 			<version>7.14.0</version>
 			<scope>compile</scope>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-<dependency>
-    <groupId>org.testng</groupId>
-    <artifactId>testng</artifactId>
-    <version>7.8.0</version>
-			<scope>compile</scope>
-</dependency>
 
-		
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.8.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+
 		<!--
 		https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
 		<dependency>
@@ -63,32 +65,32 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
 			<version>3.0.0-alpha1</version>
-						<scope>compile</scope>
+			<scope>compile</scope>
 
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>3.0.0-alpha1</version>
-						<scope>compile</scope>
+			<scope>compile</scope>
 
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>3.0.0-alpha1</version>
-						<scope>compile</scope>
+			<scope>compile</scope>
 
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.13.2</version>
-   			<scope>compile</scope>
 
-</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>compile</scope>
+
+		</dependency> 
 
 		<!--
 		https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -96,99 +98,113 @@
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.5.3</version>
-						<scope>compile</scope>
+			<scope>compile</scope>
 
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi</artifactId>
-    <version>5.2.4</version>
-						<scope>compile</scope>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.2.4</version>
+			<scope>compile</scope>
 
-</dependency>
+		</dependency>
 
 
-<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi-ooxml</artifactId>
-    <version>5.2.4</version>
-						<scope>compile</scope>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.4</version>
+			<scope>compile</scope>
 
-</dependency>
+		</dependency>
 
-<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-<dependency>
-    <groupId>com.aventstack</groupId>
-    <artifactId>extentreports</artifactId>
-    <version>5.1.1</version>
-						<scope>compile</scope>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.1.1</version>
+			<scope>compile</scope>
 
-</dependency>
-<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
-<dependency>
-    <groupId>net.masterthought</groupId>
-    <artifactId>cucumber-reporting</artifactId>
-    <version>5.7.8</version>
-                       <scope>compile</scope>
-</dependency>
-<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-html -->
-<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-html</artifactId>
-    <version>0.2.7</version>
-                         <scope>compile</scope>
-</dependency>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>5.7.8</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-html -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-html</artifactId>
+			<version>0.2.7</version>
+			<scope>compile</scope>
+		</dependency>
 
-<!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
-<dependency>
-    <groupId>tech.grasshopper</groupId>
-    <artifactId>extentreports-cucumber7-adapter</artifactId>
-    <version>1.14.0</version>
-						<scope>compile</scope>
+		<!--
+		https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
+		<dependency>
+			<groupId>tech.grasshopper</groupId>
+			<artifactId>extentreports-cucumber7-adapter</artifactId>
+			<version>1.14.0</version>
+			<scope>compile</scope>
 
-</dependency>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.tess4j/tess4j -->
+		<dependency>
+			<groupId>net.sourceforge.tess4j</groupId>
+			<artifactId>tess4j</artifactId>
+			<version>5.11.0</version>
+		</dependency>
+		<dependency>
+    <groupId>org.apache.lucene</groupId>
+    <artifactId>lucene-core</artifactId>
+    <version>8.11.1</version> <!-- Or the latest version available -->
+	</dependency>
+
 	</dependencies>
-	
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version> <!-- Adjust version as needed -->
-            <configuration>
-                <includes>
-                    <include>**/MyTestRunner.java</include>
-                </includes>
-            </configuration>
-        </plugin>
-        <plugin>
-   <groupId>net.masterthought</groupId>
-   <artifactId>maven-cucumber-reporting</artifactId>
-   <version>5.7.7</version>
-   <executions>
-     <execution>
-	<id>execution</id>
-	<phase>verify</phase>
-	<goals>
-	    <goal>generate</goal>
-	</goals>
-	<configuration>		
-	<projectName>cucumberReporting</projectName>    
-        <skip>false</skip>		
-        <outputDirectory>${project.build.directory}</outputDirectory>	     
-        <inputDirectory>${project.build.directory}</inputDirectory>
-        <jsonFiles>
-          <param>**/report.json</param>
-        </jsonFiles>	
-        <mergeFeaturesById>false</mergeFeaturesById>
-        <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
-        <checkBuildResult>false</checkBuildResult>		    			  
-        </configuration>
-   </execution>
-  </executions>
-</plugin>
-    </plugins>
-</build>	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version> <!-- Adjust version as needed -->
+				 <configuration>
+					<includes>
+						<include>**/TestRunner.java</include>
+					</includes>
+				</configuration> 
+			</plugin>
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>5.7.7</version>
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<projectName>cucumberReporting</projectName>
+							<skip>false</skip>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<inputDirectory>${project.build.directory}</inputDirectory>
+							<jsonFiles>
+								<param>**/report.json</param>
+							</jsonFiles>
+							<mergeFeaturesById>false</mergeFeaturesById>
+							<mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+							<checkBuildResult>false</checkBuildResult>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

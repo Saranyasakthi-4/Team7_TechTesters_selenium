@@ -1,19 +1,19 @@
 @tagHomePageValidation
 Feature: Home Page UI Validation
-	
-	 Scenario: Verify admin is able to land on home page
-   Given Admin launch the browser_HomePage
-   When Admin gives the correct LMS portal URL_HomePage
-    Then Admin should land on the home page_HomePage
-     
+
    Scenario: Verify admin is able to land on home page with invalid URL
    Given Admin launch the browser_HomePage
    When Admin gives the invalid LMS portal URL_HomePage
    Then Admin should receive 404 page not found error_HomePage
+	
+	 Scenario: Verify admin is able to land on home page
+   Given Admin launch the browser_HomePage
+   When Admin gives the correct LMS portal URL_HomePage
+   Then Admin should land on the home page_HomePage
      
    Scenario: Verify for broken link
    Given Admin launch the browser_HomePage
-   When Admin gives the correct LMS portal URL_HomePage
+   When Admin gives the correct LMS portal URL_HomePage for broken link
    Then HTTP response >= 400. Then the link is broken_HomePage
    
    Scenario: Verify the text spelling in the page  
@@ -81,3 +81,12 @@ Feature: Home Page UI Validation
    When Admin gives the correct LMS portal URL_HomePage
    Then Admin should see login button on the centre of the page_HomePage
    
+    Scenario: Verify input descriptive test in user field
+   Given Admin launch the browser_HomePage
+   When Admin gives the correct LMS portal URL_HomePage
+   Then Admin should see user in gray color_HomePage
+   
+     Scenario: Verify input descriptive test in password field
+   Given Admin launch the browser_HomePage
+   When Admin gives the correct LMS portal URL_HomePage
+   Then Admin should see password in gray color_HomePage

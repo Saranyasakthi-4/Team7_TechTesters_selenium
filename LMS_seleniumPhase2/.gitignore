@@ -1,2 +1,7 @@
 /target/
-/allure-result/
+/allure-results/
+/.settings/
+.project
+.classpath
+image.png
+/bin/

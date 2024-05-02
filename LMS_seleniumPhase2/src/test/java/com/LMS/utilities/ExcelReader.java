@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -37,7 +38,11 @@ public class ExcelReader {
                 cell = row.getCell(currentColumn);
                 String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(currentColumn).getStringCellValue();
                 if (null != cell)
-                    columnMapData.put(columnHeaderName, cell.getStringCellValue());
+                	if(cell.getCellType().equals(CellType.STRING)) {
+                		columnMapData.put(columnHeaderName, cell.getStringCellValue());
+                	}else if(cell.getCellType().equals(CellType.NUMERIC)) {
+                		columnMapData.put(columnHeaderName, String.valueOf(cell.getNumericCellValue()));
+                	}
                 else
                     columnMapData.put(columnHeaderName, "");
             }
