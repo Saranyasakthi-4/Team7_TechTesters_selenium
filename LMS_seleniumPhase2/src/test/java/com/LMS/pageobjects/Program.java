@@ -39,6 +39,7 @@ public class Program {
 	String programNameExcelValue;
 	String programDescExcelValue;
 	String editInvalidMsg;
+	String getMsg;
 	
 	public Program(WebDriver webDriver) {
         super();
@@ -188,6 +189,9 @@ public class Program {
 		webDriver.findElement(radio).click();
         webDriver.findElement(save).click();
         webDriver.findElement(closeBtn).click();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+     	// getMsg=webDriver.findElement(By.xpath("/html/body/app-root/app-program/p-toast/div/p-toastitem/div/div/div")).getText();
+     	 //System.out.println("The message is: "+getMsg);
     }
 	 public void readDataFromSheet(String sheetName, Integer rowNumber) throws IOException {
 	        ExcelReader reader = new ExcelReader();
@@ -198,34 +202,17 @@ public class Program {
 	        //System.out.println(programDescExcelValue);
 	    }
 	 
-	 public void successAlertMsg() {
-		 	
-		 	//Alert successAlert = webDriver.switchTo().alert();
-		 	//String actualMsg= successAlert.getText();
-
-		 	//System.out.println(actualMsg);
-			//String expectedMsg= "Successful Program Created";
-			
-			//Assert.assertEquals(expectedMsg, actualMsg);
-	    }
+	 
 	 public void EditPName() {
-		
-		 //no of pages
 		 int pages = webDriver.findElements(By.xpath("//span[@class='p-paginator-pages ng-star-inserted']/button")).size();
 		 System.out.println("Total no of pages "+pages);
 		 for(int p=1;p<=pages;p++) {
-			 //active page click
 			 WebElement active_page = webDriver.findElement(By.xpath("//button[normalize-space()='"+p+"']"));
 			 active_page.click();
-			 //System.out.println(p);
 			 int noRows = webDriver.findElements(By.xpath("//table[@role='grid']/tbody/tr")).size();
-			 //System.out.println(noRows);
 			 for(int r=1;r<=noRows;r++) {
 				 String programName =  webDriver.findElement(By.xpath("//table[@role='grid']/tbody/tr["+r+"]/td[2]")).getText();
-				 //System.out.println("pName"+programName);
 				 if(programName.contains("Team7")) {
-					 //System.out.println(programName);
-					 //webDriver.findElement(By.xpath("//table[@role='grid']/tbody/tr["+r+"]/td[5]//button[1])")).click();
 					 webDriver.findElement(By.xpath("//tbody/tr["+r+"]/td[5]/div[1]/span[1]/button[1]/span[1]")).click();
 					 webDriver.findElement(pName).sendKeys("Edited");
 			      	 webDriver.findElement(save).click();
@@ -447,12 +434,41 @@ public class Program {
 					 webDriver.findElement(commonDelete).click();
 					 webDriver.findElement(By.xpath("//span[normalize-space()='Yes']")).click();
 			      	 webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+			      	 getMsg=webDriver.findElement(By.xpath("/html/body/app-root/app-program/p-toast/div/p-toastitem/div")).getText();
+			      	 System.out.println("The message is: "+getMsg);
 					 break;
 				 }
 				 
 			 }
 		 }
 	       
+	    }
+	 public void deleteAlertMsg() {
+		 	
+		 	//Alert successAlert = webDriver.switchTo().alert();
+		 	String actualMsg= getMsg;
+
+		 	System.out.println("The actual message is: "+actualMsg);
+			String expectedMsg= "Successful Programs Deleted";
+		if(actualMsg !=null) {
+			//Assert.assertEquals(expectedMsg, actualMsg);
+			Assert.assertTrue(actualMsg.contains("Programs Deleted"));
+		 
+	    }
+	 }
+	 public void successAlertMsg() {
+		 	
+			//Alert successAlert = webDriver.switchTo().alert();
+		 	String actualMsg= getMsg;
+
+		 	System.out.println("The actual message is: "+actualMsg);
+			
+		if(actualMsg !=null) {
+			//Assert.assertEquals(expectedMsg, actualMsg);
+			Assert.assertTrue(actualMsg.contains("Program Created"));
+		 
+	    }
+		 
 	    }
 	 
 	 public void clickCommondeleteYesButton() {

@@ -49,7 +49,9 @@ public class MultipleDeleteProgram_SD {
 
 	@Then("Admin should land on Manage Program page and can see the selected program is deleted from the data table")
 	public void admin_should_land_on_manage_program_page_and_can_see_the_selected_program_is_deleted_from_the_data_table() {
+		program.deleteAlertMsg();
 		program.clickResetPage();
+		
 	}
 
 	@Given("Admin is on Confirm Deletion alert after selecting multiple checkbox in the data table of delete program")
@@ -81,6 +83,7 @@ public class MultipleDeleteProgram_SD {
 	}
 	@Then("Admin should land on Manage Program page and can see the selected multiple programs are deleted from the data table")
 	public void admin_should_land_on_manage_program_page_and_can_see_the_selected_multiple_programs_are_deleted_from_the_data_table() {
+		program.deleteAlertMsg();
 		program.clickResetPage();
 	}
 
