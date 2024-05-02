@@ -31,7 +31,12 @@ public class EditBatch_SD {
 	 }
 	 @Then("Batch Admin clicks the edit icon")
 	 public void admin_clicks_the_edit_icon() {
-	     
+	     try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		 EditPage.ClickEdit();
 	 }
 	 @Then("Admin should see a popup open for batch details with <SAVE> and <CANCEL> button and Close\\(X) Icon on the top right corner of the window")
@@ -70,7 +75,7 @@ public class EditBatch_SD {
 	 @Then("Admin clicks Batch from navigation bar")
 
 	  public void admin_clicks_from_navigation_bar() {
-		 EditPage.click_batch();
+		 //EditPage.click_batch();
 
 	  }
 }

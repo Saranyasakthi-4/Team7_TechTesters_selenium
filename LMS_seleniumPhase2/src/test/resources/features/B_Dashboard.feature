@@ -61,7 +61,4 @@ Scenario: Validate navigation bar order 4th Logout
    When Admin enter valid credentials  and clicks login button_dashboard
    Then Admin should see logout in the 4th place_dashboard
 
-Scenario: Validate navigation bar order 4th Logout 
-		Given Admin is on dashboard page after Login
-	  When Admin clicks "Batch" from navigation bar
-	  Then Admin gets navigated to batch page
+

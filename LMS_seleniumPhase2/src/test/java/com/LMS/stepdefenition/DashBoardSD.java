@@ -118,27 +118,7 @@ public class DashBoardSD {
 		
 		
 	}
-	@Given("Admin is on dashboard page after Login")
-	public void admin_is_on_dashboard_page_after_login() {
-	   
-	}
-	@When("Admin clicks {string} from navigation bar")
-	public void admin_clicks_from_navigation_bar(String string) throws InterruptedException {
-		//AddPage.navigate_dashboard();
-		if(!Driverfactory.getDriver().getCurrentUrl().equals(prop.getProperty("batchUrl"))){
-			dashboard.click_batch();
-		}
-		
-	   
-	}
-
-	@Then("Admin gets navigated to batch page")
-	public void admin_gets_navigated_to_batch_page() {
-		String currentURL = Driverfactory.getDriver().getCurrentUrl();
-		System.out.println(currentURL);
-	}
 	
-
 
 
 }

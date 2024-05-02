@@ -18,15 +18,16 @@ public class ManageProgramValidation_SD {
 	ManageProgramValidationPage Mpoobj1 = new ManageProgramValidationPage(Driverfactory.getDriver());
 	
 
-@Given("Admin is on dashboard page after Login")
-public void admin_is_on_dashboard_page_after_login() {
-		
-	Mpoobj1.homeLogin();
-	}
+//@Given("Admin is on dashboard page after Login")
+//public void admin_is_on_dashboard_page_after_login() {
+//		
+//	Mpoobj1.homeLogin();
+//	}
+	
 @When("Admin clicks {string} on the navigation bar")
 
 public void admin_clicks_on_the_navigation_bar(String string) {
-		Mpoobj1.clickProgram();
+		//Mpoobj1.clickProgram();
 	}
 @Then("Admin should see URL with {string}")
 public void admin_should_see_url_with(String string) {

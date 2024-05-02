@@ -26,8 +26,8 @@ Background:
 	Then Error message should appear on batch
 	
 	  	Examples: 
-     |    BatchName   |  BatchDiscription
-     | 		BeastTeam07	|  @##$@
+     |    BatchName   |  BatchDiscription |
+     | 		BeastTeam07	|  @##$@            |
 	
 #	Scenario Outline: Check if you get error message when mandatory fields are erased
 #	Given Admin is in the Batch Page
