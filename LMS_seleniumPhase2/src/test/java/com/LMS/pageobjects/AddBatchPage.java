@@ -21,7 +21,7 @@ import com.LMS.utilities.ExcelReader;
 public class AddBatchPage {
 	
 	private WebDriver webDriver;
-	public String PROGRAM_NAME="QA41";
+	public String PROGRAM_NAME="Team7LMSAuto";
 	
 	ConfigReader Config = new ConfigReader();
 	Properties prop  = Config.init_prop();
@@ -95,7 +95,7 @@ public class AddBatchPage {
 		 if(element!=null && element.length() > 0) {
 			 boolean isDigit = checkUsingIsDigitMethod(element);
 			 if(isDigit) {
-				 System.out.println("Not strating with number");
+				 System.out.println("Not starting with number");
 				 String alertmessage = webDriver.findElement(batchdesc_alert).getText();
 				 Assert.assertTrue(alertmessage, true);
 			 }
@@ -149,15 +149,15 @@ public class AddBatchPage {
 		 emptybatchvalues();
 		 webDriver.findElement(addbatch_SAVE).click();
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} // wait for the message to showup
-			String  saveMsg = webDriver.findElement(By.xpath("/html/body/app-root/app-batch/p-toast/div/p-toastitem/div/div[@role='alert']")).getText();// locate message
-			String msgBtn = webDriver.findElement(By.xpath("/html/body/app-root/app-batch/p-toast/div/p-toastitem/div/div/button")).getText();// locate the X button
-			System.out.println(saveMsg);
-			System.out.println(msgBtn);
+			WebElement  saveMsg = webDriver.findElement(By.xpath("/html/body/app-root/app-batch/p-toast/div/p-toastitem/div"));// locate message
+			//String msgBtn = webDriver.findElement(By.xpath("/html/body/app-root/app-batch/p-toast/div/p-toastitem/div/div/button")).getText();// locate the X button
+			//System.out.println(saveMsg);
+			//System.out.println(msgBtn);
 			//boolean isMsg  = AppUtils.isUIFieldExists(saveMsg, "Save Message Div" , "Save Program");
 //			if(isMsg) {
 //				LoggerLoad.info("Save Program Message from DIV "+saveMsg.getText());

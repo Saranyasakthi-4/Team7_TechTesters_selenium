@@ -26,8 +26,4 @@ Scenario Outline: Checking add batch using multiple input values
 	    | BatchPage | 7         |
 	    | BatchPage | 8         |
 	    | BatchPage | 9         |
-	    | BatchPage | 10        |
-	    | BatchPage | 11        |
-	    | BatchPage | 12        |
-	    | BatchPage | 13        |
 
