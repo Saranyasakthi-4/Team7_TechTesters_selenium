@@ -25,6 +25,12 @@ public class BatchPageValidation_SD {
 		String currentURL = Driverfactory.getDriver().getCurrentUrl();
 		System.out.println(currentURL);
 	}
+	
+
+	@Then("Admin should see the {string} in the URL")
+	public void admin_should_see_the_in_the_url(String string) {
+	   
+	}
 
 	@Then("Admin should see a popup open for Batch details with empty form along with <SAVE> and <CANCEL> button and Close(X) Icon on the top right corner of the window")
 	public void admin_should_see_a_popup_open_for_Batch_details_with_empty_form_along_with_save_and_cancel_button_and_close_x_icon_on_the_top_right_corner_of_the_window() {

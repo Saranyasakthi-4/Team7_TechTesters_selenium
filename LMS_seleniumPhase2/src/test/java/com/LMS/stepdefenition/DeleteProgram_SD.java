@@ -13,18 +13,34 @@ public class DeleteProgram_SD {
 	
 	@When("Admin clicks <Delete> button on the data table for any row of Delete Program")
 	public void admin_clicks_delete_button_on_the_data_table_for_any_row_of_delete_program() {
-		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		program.clickDeleteProgram();
 	}
 	@Then("Admin should see a alert open with heading {string} along with  <YES> and <NO> button for deletion")
 	public void admin_should_see_a_alert_open_with_heading_along_with_yes_and_no_button_for_deletion(String confirm) {
-		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		program.validateAlertWindow(confirm);
 
 	}
 	
 	@Then("Admin should see a message {string} <Program name>? in Delete Program")
 	public void admin_should_see_a_message_program_name_in_delete_program(String sureDelete) {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		program.validateConfirm(sureDelete);
 	}
 
@@ -55,6 +71,12 @@ public class DeleteProgram_SD {
 
 	@When("Admin clicks Cancel or Close Icon on Deletion alert")
 	public void admin_clicks_cancel_or_close_icon_on_deletion_alert() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		program.clickResetPage();
 		program.clickDeleteProgram();
 		program.clickCanceldelete();

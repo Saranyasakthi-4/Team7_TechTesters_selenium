@@ -1,7 +1,11 @@
 package com.LMS.stepdefenition;
 
+import java.util.Properties;
+
 import com.LMS.browserlaunch.Driverfactory;
+import com.LMS.pageobjects.DashBoardPage;
 import com.LMS.pageobjects.Program;
+import com.LMS.utilities.ConfigReader;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +14,9 @@ import io.cucumber.java.en.When;
 public class MultipleDeleteProgram_SD {
 	
 	Program program = new Program(Driverfactory.getDriver());
+	DashBoardPage dashboard = new DashBoardPage(Driverfactory.getDriver());
+	ConfigReader Config = new ConfigReader();
+    Properties prop  = Config.init_prop();
 	
 	@When("Admin clicks any checkbox in the data table to delete program")
 	public void admin_clicks_any_checkbox_in_the_data_table_to_delete_program() {
@@ -86,6 +93,27 @@ public class MultipleDeleteProgram_SD {
 		program.deleteAlertMsg();
 		program.clickResetPage();
 	}
+//	
+//	@Given("Admin is on dashboard page after Login")
+//	public void admin_is_on_dashboard_page_after_login() {
+//	   
+//	}
+	@When("Admin clicks {string} from navigation bar")
+	public void admin_clicks_from_navigation_bar(String string) throws InterruptedException {
+		//AddPage.navigate_dashboard();
+		if(!Driverfactory.getDriver().getCurrentUrl().equals(prop.getProperty("batchUrl"))){
+			dashboard.click_batch();
+		}
+		
+	   
+	}
+
+	@Then("Admin gets navigated to batch page")
+	public void admin_gets_navigated_to_batch_page() {
+		String currentURL = Driverfactory.getDriver().getCurrentUrl();
+		System.out.println(currentURL);
+	}
+
 
 
 }

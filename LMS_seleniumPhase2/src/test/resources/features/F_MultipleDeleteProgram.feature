@@ -32,3 +32,9 @@ Background:
 	   	When Admin clicks <YES> button on the alert to delete multiple program
 	    Then Admin should land on Manage Program page and can see the selected multiple programs are deleted from the data table
 	    
+	   Scenario: Validate navigation to Batch Page
+		Given Admin is on dashboard page after Login
+	  When Admin clicks "Batch" from navigation bar
+	  Then Admin gets navigated to batch page
+      
+	    

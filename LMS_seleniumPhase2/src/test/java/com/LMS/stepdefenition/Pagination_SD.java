@@ -20,13 +20,19 @@ public class Pagination_SD {
 	
 @Given("Admin is on Manage Program Page after logged in")
 public void admin_is_on_manage_program_page() {
-	pp1.homeLogin();
+	//pp1.homeLogin();
  
 	
 }
 
 @When("Admin clicks Next page link on the program table")
 public void admin_clicks_next_page_link_on_the_program_table() {
+	try {
+		Thread.sleep(500);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	pp1.clicknext();
 	
 	

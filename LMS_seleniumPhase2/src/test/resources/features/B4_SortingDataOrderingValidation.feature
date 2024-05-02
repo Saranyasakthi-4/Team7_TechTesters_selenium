@@ -34,8 +34,3 @@ Scenario: Validates Sorting(data ordering) on the Program Data table1
     #When  Admin clicks the sort icon of program Status column
     #Then The data get sorted on the table based on the program status column values in descending order
     
-    Scenario: Validate navigation to Batch Page
-		Given Admin is on dashboard page after Login
-	  When Admin clicks "Batch" from navigation bar
-	  Then Admin gets navigated to batch page
-      

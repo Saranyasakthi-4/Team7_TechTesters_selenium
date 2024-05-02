@@ -46,10 +46,10 @@ public class AddNewProgram_SD {
 	public void admin_should_see_two_radio_button_for_program_status() {
 	   
 	}
-	@Given("Admin is on {string} Popup window")
-	public void admin_is_on_popup_window(String string) {
-	    
-	}
+//	@Given("Admin is on {string} Popup window")
+//	public void admin_is_on_popup_window(String string) {
+//	    
+//	}
 	@When("Admin clicks <Save>button without entering any data")
 	public void admin_clicks_save_button_without_entering_any_data() {
 		program.clickEmptySave();
